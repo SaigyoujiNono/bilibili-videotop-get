@@ -12,7 +12,7 @@ import re,time
 # 科技区=[趣味科普人文:124,野生技术协会:122,演讲_公开课:39,星海:96,数码:95,机械:98,汽车:176]
 # 生活区=[搞笑:138,日常:21,美食圈:76,动物圈:75,手工:161,绘画:162,运动:163,其他:174]
 # 鬼畜区=[鬼畜调教:22,音MAD:26,人力VOCALLOID:126,教程演示:127]
-cartoon_cate_id = [24, 25, 27, 47]
+cartoon_cate_id = [24, 25, 47, 27]
 cartoon_name=['MAD_AMV','MMD_3D','shoushu','zonghe']
 music_cate_id =[28,31,30,59,29,54,130]
 music_name=['yuanchuang','fanchang','VOCALOID_UTAU','yanzou','sanciyuanyinyue','OP_ED_OST','yinyuexuanji']
