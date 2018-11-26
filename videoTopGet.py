@@ -89,7 +89,7 @@ def getData(partition,cate_id_group,cate_name):
     car_count = 0
     for cate_id in cate_id_group:
         print('接下来是'+cate_name[car_count])
-        for page in range (1000):
+        for page in range (99999):
             page_count=page+1
             html = get_one_bilibiliTop(cate_id, page_count, head).encode('utf-8').decode('unicode_escape')
             items = parse_one_partitionPage(html, cate_name[car_count], partition)
@@ -102,6 +102,7 @@ def getData(partition,cate_id_group,cate_name):
                        +item['partition']
                 strinfo = re.compile('\\\\')
                 wr=strinfo.sub('',wr)
+                # print(wr)
                 write_to_file(wr,partition+'.txt')
                 if items_count==100:
                     items_count=0
@@ -111,10 +112,11 @@ def getData(partition,cate_id_group,cate_name):
             #当 page 结束时跳转到下一个page
             if items_count!=0:
                 break
-
+        print(partition + '分区' +cate_name[car_count]+'类已完成')
         car_count+=1
         if car_count==cate_name.__len__():
             car_count=0
+    print(partition+'分区已完成')
 
 def main():
     for g in range(partition.__len__()):
