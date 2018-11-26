@@ -7,21 +7,7 @@
 参数
 数据url:https://s.search.bilibili.com/cate/search?
 
-data={data=
-  'callback':ran,
-  'main_ver':'v3',
-  'search_type':'video',
-  'view_type':'hot_rank',
-  'order':'click',
-  'copy_right':'-1',
-  'cate_id':分区id,
-  'page':页数,
-  'pagesize':每页显示x（最大100）条数据,
-  'jsonp':'jsonp',
-  'time_from':'20181001',#日期段
-  'time_to':'20181031',#日期段
-  '_':当前时间（毫秒）
-}
+
 <table>
   <tr><th>key</th> <th>value</th></tr>
 	<tr><td>callback</td> <td>ran</td></tr>
