@@ -28,6 +28,7 @@ ghostAnimal_cate_id =[22,26,126,127]
 ghostAnimal_name=['guichutiaojiao','yinMAD','renli','jiaohcengyanshi']
 #分区列表
 cate_id_all=[cartoon_cate_id,music_cate_id,dance_cate_id,game_cate_id,science_cate_id,life_cate_id,ghostAnimal_cate_id,]
+cate_name_all=[cartoon_name,music_name,dance_name,game_name,science_name,life_name,ghostAnimal_name]
 partition=['donghua','yinyue','wudao','youxi','keji','shenghuo','guichu']
 
 head='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
@@ -84,15 +85,14 @@ def parse_one_partitionPage(html,type,partition):
             'partition':partition
         }
 
-def getData(partition,cate_id_group):
+def getData(partition,cate_id_group,cate_name):
     car_count = 0
     for cate_id in cate_id_group:
-        print(cate_id)
-
+        print('接下来是'+cate_name[car_count])
         for page in range (1000):
             page_count=page+1
             html = get_one_bilibiliTop(cate_id, page_count, head).encode('utf-8').decode('unicode_escape')
-            items = parse_one_partitionPage(html, cartoon_name[car_count], partition)
+            items = parse_one_partitionPage(html, cate_name[car_count], partition)
             items_count=0
 
             for item in items:
@@ -106,19 +106,19 @@ def getData(partition,cate_id_group):
                 if items_count==100:
                     items_count=0
 
-            print(partition + '分区' + cartoon_name[car_count] + '类：第' + str(page_count) + '页')
+            print(partition + '分区' + cate_name[car_count] + '类：第' + str(page_count) + '页')
             time.sleep(round(random.uniform(0,3),2))
             #当 page 结束时跳转到下一个page
             if items_count!=0:
-                print(items_count)
                 break
 
         car_count+=1
-    print(car_count)
+        if car_count==cate_name.__len__():
+            car_count=0
 
 def main():
     for g in range(partition.__len__()):
-        getData(partition[g],cate_id_all[g])
+        getData(partition[g],cate_id_all[g],cate_name_all[g])
 
 if __name__ == '__main__':
     main()
@@ -126,4 +126,4 @@ if __name__ == '__main__':
 ###结尾说明###
 #get_one_bilibiliTop(cate_id,page,user_agent):传入类型id、页码、headers，得到当前页面数据
 #parse_one_partitionPage(html,type,partition):传入当前获取到的页面、类型、大分区
-#getData(partition):打包文件为partition[].txt
+#getData(partition,cate_id_group,cate_name):传入分区、cate_id、名字
