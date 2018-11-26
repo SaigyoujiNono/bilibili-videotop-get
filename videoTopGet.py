@@ -27,6 +27,7 @@ life_name=['gaoxiao','richang','meishiquan','shougong','huihua','yundong','qita'
 ghostAnimal_cate_id =[22,26,126,127]
 ghostAnimal_name=['guichutiaojiao','yinMAD','renli','jiaohcengyanshi']
 #分区列表
+cate_id_all=[cartoon_cate_id,music_cate_id,dance_cate_id,game_cate_id,science_cate_id,life_cate_id,ghostAnimal_cate_id,]
 partition=['donghua','yinyue','wudao','youxi','keji','shenghuo','guichu']
 
 head='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
@@ -86,6 +87,7 @@ def parse_one_partitionPage(html,type,partition):
 def getData(partition,cate_id_group):
     car_count = 0
     for cate_id in cate_id_group:
+        print(cate_id)
 
         for page in range (1000):
             page_count=page+1
@@ -116,7 +118,7 @@ def getData(partition,cate_id_group):
 
 def main():
     for g in range(partition.__len__()):
-        getData(partition[g],cartoon_cate_id)
+        getData(partition[g],cate_id_all[g])
 
 if __name__ == '__main__':
     main()
