@@ -23,7 +23,7 @@ game_name=['danjiyouxi','dianzijingji','shoujiyouxi','wangluoyouxi','zhuoyouqipa
 science_cate_id =[124,122,39,96,95,98,176]
 science_name=['quweikepurenwen','yeshengjishuxiehui','yanjiang','xinghai','shuma','jixie','qiche']
 life_cate_id =[138,21,76,75,161,162,163,174]
-life_name=['gaoxiao','richang','meishiquan','shougong','huihua','yundong','qita']
+life_name=['gaoxiao','richang','meishiquan','dongwuquan','shougong','huihua','yundong','qita']
 ghostAnimal_cate_id =[22,26,126,127]
 ghostAnimal_name=['guichutiaojiao','yinMAD','renli','jiaohcengyanshi']
 #分区列表
