@@ -93,8 +93,10 @@ def getData(partition,cate_id_group,cate_name):
             page_count=page+1
             html = get_one_bilibiliTop(cate_id, page_count, head).encode('utf-8').decode('unicode_escape')
             items = parse_one_partitionPage(html, cate_name[car_count], partition)
+            items_flag=parse_one_partitionPage(html, cate_name[car_count], partition)
+            if len(list(items_flag))==0:
+                break
             items_count=0
-
             for item in items:
                 items_count+=1
                 wr=item['video_id']+","+item['title']+","+item['update'][:10]+","+item['play']+","+item['star']+","\
@@ -108,11 +110,14 @@ def getData(partition,cate_id_group,cate_name):
                     items_count=0
 
             print(partition + '分区' + cate_name[car_count] + '类：第' + str(page_count) + '页')
-            time.sleep(round(random.uniform(0,3),2))
+            time.sleep(round(random.uniform(0,1.5),2))
             #当 page 结束时跳转到下一个page
             if items_count!=0:
                 break
-        print(partition + '分区' +cate_name[car_count]+'类已完成')
+        log=partition + '分区' +cate_name[car_count]+'类已完成\t'+str(datetime.datetime.now())
+        print(log)
+        with open('log.txt', 'a', encoding='utf-8') as f:
+            f.write(log + '\n')
         car_count+=1
         if car_count==cate_name.__len__():
             car_count=0
