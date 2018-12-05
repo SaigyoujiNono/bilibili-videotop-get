@@ -25,7 +25,7 @@ science_name=['quweikepurenwen','yeshengjishuxiehui','yanjiang','xinghai','shuma
 life_cate_id =[138,21,76,75,161,162,163,174]
 life_name=['gaoxiao','richang','meishiquan','dongwuquan','shougong','huihua','yundong','qita']
 ghostAnimal_cate_id =[22,26,126,127]
-ghostAnimal_name=['guichutiaojiao','yinMAD','renli','jiaohcengyanshi']
+ghostAnimal_name=['guichutiaojiao','yinMAD','renli','jiaochengyanshi']
 #分区列表
 cate_id_all=[cartoon_cate_id,music_cate_id,dance_cate_id,game_cate_id,science_cate_id,life_cate_id,ghostAnimal_cate_id,]
 cate_name_all=[cartoon_name,music_name,dance_name,game_name,science_name,life_name,ghostAnimal_name]
